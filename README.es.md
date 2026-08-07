@@ -109,6 +109,40 @@ Repite `--root` para mas carpetas. En la configuracion de un cliente MCP:
 | `list_plans` | no | Planes vivos, el mas nuevo primero. Si un plan no aparece, no se puede aplicar. |
 | `server_status` | no | Las raices permitidas, que son el limite duro de todo lo que ocurre aqui. |
 
+## Una sesion
+
+El servidor responde en ingles, asi que el bloque siguiente es su salida real,
+sin traducir. La frase de confirmacion la genera el codigo como
+`apply N changes`, por lo que traducirla haria que este documento mintiera
+sobre lo que hay que escribir.
+
+```text
+propose_picks(root="~/Pictures/canyon-2026")
+
+  Cull plan for /Users/keivan/Pictures/canyon-2026
+  412 frames analyzed.
+  38 picks, 61 rejects, 313 left alone.
+  ...
+  plan_id: 8e2806e0ed2bfa8930c05349089e586a
+  To apply, call apply_picks with that plan_id and confirm="apply 99 changes".
+
+apply_picks(plan_id="8e28...", confirm="true")
+  Refused: Confirmation did not match. To apply this plan the confirm
+  argument must be exactly "apply 99 changes". This is deliberately not a
+  boolean: quoting the change count back is evidence the plan was read.
+
+apply_picks(plan_id="8e28...", confirm="apply 99 changes")
+  Applied. 99 sidecars written: 38 picks, 61 rejects.
+  Only .xmp sidecars were written. No original image file was opened for
+  writing. Call undo_last_apply to reverse this.
+```
+
+Lo que ocurre ahi: el plan se propone y no escribe nada. El primer intento de
+aplicarlo se rechaza porque `confirm="true"` no es la frase exacta, y un
+booleano no demuestra que alguien haya leido el plan. El segundo intento cita
+el numero de cambios y si escribe, solo archivos `.xmp` adjuntos, nunca la
+imagen original, y `undo_last_apply` lo revierte.
+
 ## Desarrollo
 
 ```bash
