@@ -6,6 +6,8 @@
 
 [English](README.md) | Espanol
 
+![Demo de shutter-cull-mcp: el servidor se niega a arrancar sin una lista explicita de raices permitidas](docs/demo.gif)
+
 Un servidor MCP que deja a un agente de IA hacer el culling de tu sesion de fotos, y que no puede irse con ella.
 
 Envuelve a [shutter-cull](https://github.com/keivanmalhani/shutter-cull), que evalua nitidez, ojos abiertos y estetica y escribe los picks como sidecars XMP que Lightroom lee de forma nativa. El motor ya era seguro de correr. Entregarselo a un agente es otro problema, y este repo es la respuesta a ese problema, no un envoltorio RPC delgado sobre un CLI.
