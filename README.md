@@ -6,6 +6,8 @@
 
 English | [Espanol](README.es.md)
 
+![shutter-cull-mcp demo: the server refuses to start without an explicit root allowlist](docs/demo.gif)
+
 An MCP server that lets an AI agent cull your photo shoot, and cannot run away with it.
 
 It wraps [shutter-cull](https://github.com/keivanmalhani/shutter-cull), which scores frames for sharpness, eye-openness and aesthetics and writes picks as XMP sidecars Lightroom reads natively. The engine was already safe to run. Handing it to an agent is a different problem, and this repo is the answer to that problem, not a thin RPC wrapper around a CLI.
