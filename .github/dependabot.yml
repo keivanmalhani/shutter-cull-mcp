@@ -4,6 +4,15 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    # mcp 2.0.0 renamed FastMCP to MCPServer and moved the module, so a major bump breaks
+    # the build rather than updating it. pyproject.toml pins <2.0.0 deliberately and says
+    # why; dependabot kept proposing >=1.2.0,<3.0.0 anyway and turned the repo red on the
+    # public profile. Ignore the major, keep taking minors and patches.
+    ignore:
+      - dependency-name: "mcp"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "mcp[cli]"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
