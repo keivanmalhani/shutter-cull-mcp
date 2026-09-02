@@ -17,7 +17,7 @@ keywords = [
 dependencies = [
     # mcp 2.0.0 on PyPI dropped mcp.server.fastmcp for a different,
     # unreleased API. shutter-mcp hit this and pinned; same pin here.
-    "mcp[cli]>=1.2.0,<2.0.0",
+    "mcp[cli]>=1.2.0,<3.0.0",
 ]
 
 [project.optional-dependencies]
