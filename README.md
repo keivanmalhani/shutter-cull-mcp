@@ -4,8 +4,6 @@
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
 
-English | [Espanol](README.es.md)
-
 ![shutter-cull-mcp demo: the server refuses to start without an explicit root allowlist](docs/demo.gif)
 
 An MCP server that lets an AI agent cull your photo shoot, and cannot run away with it.
